@@ -23,7 +23,7 @@ $upload_dir = wp_upload_dir();
 define('WC1C_DATA_DIR', "{$upload_dir['basedir']}/woocommerce-1c/");
 
 function wc1c_init() {
-  if (!is_plugin_active("woocommerce/woocommerce.php")) {
+  if (!class_exists('WooCommerce')) {
     function wc1c_woocommerce_admin_notices() {
       $plugin_data = get_plugin_data(__FILE__);
       $message = sprintf(__("Plugin <strong>%s</strong> requires plugin <strong>WooCommerce</strong> to be installed and activated.", 'woocommerce-1c'), $plugin_data['Name']);
